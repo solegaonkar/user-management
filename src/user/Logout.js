@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------- *
- * File: App.js                                                                *
+ * File: Logout.js                                                             *
  * Project: usermanagement                                                     *
  * Created Date: 24 Oct 2022                                                   *
  * Author: Vikas K Solegaonkar (vikas.solegaonkar@gmail.com)                   *
@@ -16,26 +16,21 @@
  * --------------------------------------------------------------------------- *
  */
 
-import Login from "./user/Login";
-import Logout from "./user/Logout";
-import "bootstrap/dist/css/bootstrap.min.css";
-import ChangePassword from "./user/ChangePassword";
-function App() {
-  const config = {
-    userNameIsEmail: true,
-    apiKey: "apiKey",
-    onSuccess: () => console.log("Success"),
-    onFailure: () => console.log("Failure"),
-    onLogout: () => console.log("Logout"),
-    token: "TOKEN",
+import React from "react";
+import axios from "axios";
+import { Constants } from "./constants";
+import { Button } from "react-bootstrap";
+const sha1 = require("sha1");
+
+function Logout({ config }) {
+  var { onLogout, token } = config;
+
+  const logout = async () => {
+    console.log("Trying to logout");
+    await axios.post(Constants.API_URL, { action: sha1("LOGOUT"), token }).finally(() => onLogout());
   };
-  return (
-    <>
-      <Login config={config} />
-      <Logout config={config} />
-      <ChangePassword config={config} />
-    </>
-  );
+
+  return <Button onClick={logout}>Logout</Button>;
 }
 
-export default App;
+export default Logout;

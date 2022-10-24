@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------- *
- * File: App.js                                                                *
+ * File: SignUp.js                                                             *
  * Project: usermanagement                                                     *
  * Created Date: 24 Oct 2022                                                   *
  * Author: Vikas K Solegaonkar (vikas.solegaonkar@gmail.com)                   *
@@ -16,26 +16,10 @@
  * --------------------------------------------------------------------------- *
  */
 
-import Login from "./user/Login";
-import Logout from "./user/Logout";
-import "bootstrap/dist/css/bootstrap.min.css";
-import ChangePassword from "./user/ChangePassword";
-function App() {
-  const config = {
-    userNameIsEmail: true,
-    apiKey: "apiKey",
-    onSuccess: () => console.log("Success"),
-    onFailure: () => console.log("Failure"),
-    onLogout: () => console.log("Logout"),
-    token: "TOKEN",
-  };
-  return (
-    <>
-      <Login config={config} />
-      <Logout config={config} />
-      <ChangePassword config={config} />
-    </>
-  );
+import React from "react";
+
+function SignUp() {
+  return <div>SignUp</div>;
 }
 
-export default App;
+export default SignUp;

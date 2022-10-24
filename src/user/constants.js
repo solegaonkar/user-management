@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------- *
- * File: App.js                                                                *
+ * File: constants.js                                                          *
  * Project: usermanagement                                                     *
  * Created Date: 24 Oct 2022                                                   *
  * Author: Vikas K Solegaonkar (vikas.solegaonkar@gmail.com)                   *
@@ -16,26 +16,8 @@
  * --------------------------------------------------------------------------- *
  */
 
-import Login from "./user/Login";
-import Logout from "./user/Logout";
-import "bootstrap/dist/css/bootstrap.min.css";
-import ChangePassword from "./user/ChangePassword";
-function App() {
-  const config = {
-    userNameIsEmail: true,
-    apiKey: "apiKey",
-    onSuccess: () => console.log("Success"),
-    onFailure: () => console.log("Failure"),
-    onLogout: () => console.log("Logout"),
-    token: "TOKEN",
-  };
-  return (
-    <>
-      <Login config={config} />
-      <Logout config={config} />
-      <ChangePassword config={config} />
-    </>
-  );
+export class Constants {
+  static SECRET =
+    "a70bf6ad-fce3-4abb-9cce-33d1de5e0db5-477e0b92-08e8-4824-a52c-0732fdf58d47-2e5a1701-2ff1-4876-9e4d-c9f34134c022-40d23eb5-1c10-4ad9-8917-11829f9ffb51";
+  static API_URL = "https://auth.krazyminds.com";
 }
-
-export default App;
